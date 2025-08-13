@@ -1,0 +1,385 @@
+/*
+File: styles.css
+Deskripsi: CSS untuk styling proyek Eco.riDE, dengan tema hijau-kebiruan yang konsisten.
+*/
+
+:root {
+  --color-primary: #1fb28a;
+  --color-secondary: #1aa9d8;
+  --color-bg-light: #e6fbf4;
+  --color-bg-lighter: #e6f7ff;
+  --color-text-dark: #1f2937;
+  --color-text-light: #6b7280;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom, var(--color-bg-light), var(--color-bg-lighter));
+  color: var(--color-text-dark);
+}
+
+header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .logo-badge {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+header p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.search-bar svg {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #f9fafb;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #dff8ef, #dff2fb);
+  border-color: #d1d5db;
+}
+
+footer {
+  padding: 2rem 1.5rem;
+  border-top: 1px solid #f3f4f6;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  padding: 1rem;
+  flex: 1;
+  overflow: auto;
+}
+
+
+/* ================ styles.css ================ */
+/* Tambahkan file ini ke proyek Anda (mis. src/styles.css) dan import di _app.js atau index.js: */
+/* import './styles.css' */
+
+:root{
+  --eco-green: #1fb28a;     /* aksen hijau */
+  --eco-blue:  #1aa9d8;     /* aksen biru */
+  --eco-teal:  #1aa9d8;
+  --bg-soft-1: #e6fbf4;     /* gradien atas */
+  --bg-soft-2: #e6f7ff;     /* gradien bawah */
+  --card-bg:   #ffffff;
+  --muted:     #6b7280;
+  --glass:     rgba(255,255,255,0.6);
+  --radius-lg: 18px;
+}
+
+/* Reset ringan */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg-soft-1),var(--bg-soft-2));
+  color: #0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header */
+.eco-header{
+  max-width:1200px;
+  margin:0 auto;
+  padding:24px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.brand .logo{
+  width:56px;
+  height:56px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+  font-size:22px;
+  background: linear-gradient(135deg,var(--eco-green),var(--eco-blue));
+  box-shadow: 0 6px 18px rgba(26,169,216,0.12);
+
+  
+}
+
+.brand h1{margin:0;font-size:20px}
+.brand p{margin:0;color:var(--muted);font-size:13px}
+
+/* Search */
+.search-input{
+  position:relative;
+}
+.search-input input{
+  width:320px;
+  padding:10px 14px 10px 40px;
+  border-radius:12px;
+  border:1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 4px 10px rgba(16,24,40,0.03);
+  background: white;
+  outline:none;
+}
+.search-input svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+
+/* Generic button */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  border:1px solid rgba(15,23,42,0.06);
+  background: white;
+  font-weight:600;
+}
+
+.btn--primary{
+  background: linear-gradient(90deg,var(--eco-green),var(--eco-blue));
+  color:white;
+  border:none;
+  box-shadow:0 8px 24px rgba(26,169,216,0.12);
+}
+
+/* Hero card */
+.hero-card{
+  max-width:1200px;
+  margin:18px auto;
+  padding:22px;
+  border-radius:var(--radius-lg);
+  background: linear-gradient(135deg, rgba(240,255,249,0.9), rgba(238,249,255,0.9));
+  border:1px solid rgba(15,23,42,0.04);
+  box-shadow: 0 6px 30px rgba(16,24,40,0.04);
+}
+
+/* Grid */
+.grid{
+  max-width:1200px;
+  margin:18px auto;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
+  padding:0 20px 80px 20px;
+}
+
+.infografis {
+    text-align: center; /* Membuat gambar di tengah secara horizontal */
+    margin: 20px 0; /* Jarak atas dan bawah */
+}
+
+.infografis img {
+    max-width: 80%; /* Supaya tidak terlalu besar */
+    height: auto; /* Menjaga rasio gambar */
+    display: inline-block;
+}
+
+
+
+@media (max-width:1024px){ .grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:640px){ .grid{ grid-template-columns: 1fr; } .search-input input{ width:220px }}
+
+.card{
+  background:var(--card-bg);
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(15,23,42,0.04);
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(16,24,40,0.06); }
+
+.card .thumb{ height:190px; background:linear-gradient(90deg, rgba(31,178,138,0.08), rgba(26,169,216,0.06)); display:flex;align-items:center;justify-content:center; }
+.card .thumb img{ width:100%; height:100%; object-fit:cover }
+.card .body{ padding:14px; flex:1; display:flex; flex-direction:column }
+.card .title{ font-weight:700; margin:0 0 6px 0 }
+.card .desc{ color:var(--muted); font-size:13px; margin:0 }
+
+.card .meta{ display:flex; align-items:center; justify-content:space-between; margin-top:12px }
+.tag{
+  padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:0.6px;
+}
+.tag--ebook{ background: rgba(31,178,138,0.09); color:var(--eco-green); }
+.tag--ppt{ background: rgba(26,169,216,0.09); color:var(--eco-blue); }
+.tag--video{ background: rgba(99,102,241,0.06); color:#6366f1 }
+
+.card .actions{ display:flex; gap:8px; margin-top:14px }
+.action-btn{ padding:8px 12px; border-radius:10px; border:1px solid rgba(15,23,42,0.04); background:transparent; cursor:pointer; font-weight:600 }
+
+/* Modal */
+.modal-backdrop{
+  position:fixed; inset:0; background:rgba(2,6,23,0.6); display:flex; align-items:center; justify-content:center; z-index:60;
+}
+.modal{
+  width:92%; max-width:1000px; height:84vh; background: white; border-radius:14px; overflow:hidden; display:flex; flex-direction:column;
+}
+.modal .header{ padding:12px 16px; border-bottom:1px solid rgba(15,23,42,0.04); display:flex; align-items:center; justify-content:space-between }
+.modal .content{ padding:12px; flex:1; }
+
+/* Footer */
+.site-footer{ max-width:1200px; margin:36px auto; padding:18px 20px; display:flex; justify-content:space-between; color:var(--muted); font-size:13px }
+
+/* Tiny utilities */
+.text-muted{ color:var(--muted) }
+.center{ display:flex; align-items:center; justify-content:center }
+
+/* Form styles for upload / quiz */
+.form-field{ display:flex; flex-direction:column; gap:8px; }
+.input, textarea, select{
+  padding:10px 12px; border-radius:10px; border:1px solid rgba(15,23,42,0.06); outline:none; background:white;
+}
+.input:focus, textarea:focus, select:focus{ box-shadow:0 8px 24px rgba(26,169,216,0.08); border-color: rgba(26,169,216,0.25) }
+
+/* Progress bar */
+.progress{
+  height:10px; border-radius:999px; background:rgba(15,23,42,0.06); overflow:hidden;
+}
+.progress > b{ display:block; height:100%; background:linear-gradient(90deg,var(--eco-green),var(--eco-blue)); width:40%; }
+
+/* tiny accessibility helpers */
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
+
+/* End of stylesheet */
+
+
+/* Cara pakai singkat (tambahkan di README atau _app.js):
+
+1. Simpan file ini sebagai src/styles.css
+2. Import di entry point Next.js/CRA: import '../src/styles.css'
+3. Jika menggunakan Tailwind, Anda tetap dapat memakai utility classes; file ini melengkapi styling non-tailwind.
+*/

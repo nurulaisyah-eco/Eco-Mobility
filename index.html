@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#23665a" />
+  <title>Eco‑Ride — Kurangi Emisi Lalu Lintas</title>
+  <meta name="description" content="Eco‑Ride: Edukasi emisi lalu lintas dan solusi transportasi ramah lingkungan untuk kota pintar." />
+  <meta name="author" content="Eco‑Ride" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================
+       Eco‑Ride — Comprehensive Styles
+       > Designed to be self-contained, modern, and accessible
+       ========================== */
+
+    :root{
+      --bg: #c5c5bd;
+      --panel: #eff0ed;
+      --muted: #556073;
+      --text: #072029;
+      --accent: #16a34a; /* green */
+      --accent-2: #059669; /* darker green */
+      --glass: rgba(255, 255, 255, 0.363);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-soft: 0 8px 30px rgba(2,6,23,0.06);
+      --max-w: 1200px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, var(--bg), #eefaf3 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      font-size:16px;
+    }
+
+    body.dark-mode {
+  background-color: #121212 !important; /* warna hitam */
+  color: white !important;              /* teks jadi putih */
+}
+    
+
+    /* Layout containers */
+    .container{ max-width:var(--max-w); margin:0 auto; padding:1rem; }
+    header{ position:sticky; top:0; z-index:40; backdrop-filter: blur(6px); background: rgba(255,255,255,0.7); border-bottom:1px solid rgba(7,32,41,0.06); }
+    .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; max-width:var(--max-w); margin:0 auto; padding:0.75rem 1rem; }
+
+    .brand{ display:flex; align-items:center; gap:0.75rem; }
+    .brand .logo{ width:48px; height:48px; border-radius:12px; display:grid; place-items:center; color:white; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:var(--shadow-soft); font-weight:800; }
+    .brand h1{ margin:0; font-size:1.05rem; letter-spacing: -0.01em; }
+    .brand p{ margin:0; font-size:0.8rem; color:var(--muted); }
+
+    nav.nav{ display:flex; gap:0.5rem; align-items:center; }
+    nav.nav a{ padding:0.5rem 0.75rem; border-radius:9px; color:var(--muted); font-weight:600; text-decoration:none; }
+    nav.nav a:hover{ color:var(--text); background:rgba(6,182,116,0.06); }
+
+    .cta{ display:flex; gap:0.5rem; align-items:center; }
+    .btn{ display:inline-flex; align-items:center; gap:0.5rem; padding:0.55rem 0.8rem; border-radius:10px; cursor:pointer; border:none; font-weight:700; }
+    .btn.primary{ background:var(--accent); color:white; box-shadow:var(--shadow-soft); }
+    .btn.ghost{ background:transparent; border:1px solid rgba(7,32,41,0.06); }
+
+    /* Hero */
+    .hero{ padding:2rem 0 3rem 0; }
+    .hero-grid{ display:grid; grid-template-columns: 1fr; gap:1.25rem; align-items:center; }
+    .hero-card{ background:linear-gradient(180deg,#ffffff,#f7fffb); padding:1rem; border-radius:var(--radius-md); box-shadow:var(--shadow-soft); border:1px solid rgba(7,32,41,0.04); }
+    .headline{ font-size:clamp(1.5rem, 3.6vw, 2.25rem); font-weight:800; margin:0; }
+    .kicker{ display:inline-block; padding:0.35rem 0.6rem; border-radius:999px; background:rgba(22,163,74,0.08); color:var(--accent-2); font-weight:700; font-size:0.85rem; }
+    .lead{ color:var(--muted); margin-top:0.6rem; }
+
+    .hero-media{ display: flex; justify-content:center; align-items:center; }
+    .card-media{ width:100%; max-width:560px; border-radius:14px; overflow:hidden; }
+
+
+.ecomobility {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ecomobility img {
+  width: 360px;
+  border-radius: 8px;
+}
+
+    /* Sections */
+    section{ margin-bottom:2rem; }
+    h2{ font-size:1.25rem; margin:0 0 0.5rem 0; }
+    p.lead-small{ color:var(--muted); margin:0 0 1rem 0; }
+
+    /* Two-column layout */
+    .two-col{ display:grid; gap:1rem; grid-template-columns: 1fr; }
+    @media(min-width:900px){ .hero-grid{ grid-template-columns: 1fr 1fr; } .two-col{ grid-template-columns: 2fr 1fr; } }
+
+    /* Cards */
+    .card{ background:var(--panel); padding:1rem; border-radius:var(--radius-sm); box-shadow:var(--shadow-soft); border:1px solid rgba(7,32,41,0.04); }
+    .card.small{ padding:1rem; }
+
+    /* Feature list */
+    .features{ display:grid; gap:0.75rem; }
+    .feature{ display:flex; gap:0.75rem; align-items:flex-start; }
+    .feature .icon{ width:44px; height:44px; border-radius:10px; display:grid; place-items:center; color:white; background:linear-gradient(180deg,var(--accent),var(--accent-2)); font-weight:700; }
+    .feature h4{ margin:0 0 0.25rem 0; }
+    .feature p{ margin:0; color:var(--muted); font-size:0.95rem; }
+
+    /* Infographics */
+
+        .infografis {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .infografis img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+
+    .infographic-wrap{ display:flex; flex-direction:column; gap:1rem; }
+    .chart{ width:100%; height:320px; border-radius:12px; overflow:hidden; background:linear-gradient(180deg,#fbfff9,#f0f8f2); border:1px solid rgba(7,32,41,0.03); display:grid; align-items:center; justify-items:center; }
+    svg#emissionChart{ width:95%; height:85%; }
+    .chart-controls{ display:flex; gap:0.5rem; align-items:center; }
+
+    /* Video */
+    .video-wrap{ position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; }
+    .video-wrap iframe, .video-wrap video{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+    /* Resources list */
+    .resources{ display:grid; gap:0.75rem; }
+    .resource{ display:flex; justify-content:space-between; gap:0.75rem; align-items:center; padding:0.6rem; border-radius:10px; background:linear-gradient(180deg,#fff,#fbfffb); border:1px solid rgba(7,32,41,0.03); }
+    .resource a{ color:var(--accent-2); font-weight:700; text-decoration:none; }
+
+    /* Newsletter */
+    .newsletter{ display:flex; gap:0.5rem; align-items:center; }
+    .newsletter input[type="email"]{ flex:1; padding:0.6rem 0.75rem; border-radius:10px; border:1px solid rgba(7,32,41,0.06); }
+    .newsletter .btn{ padding:0.6rem 0.9rem; }
+
+    /* Footer */
+    footer{ margin-top:2rem; padding:2rem 0; background:linear-gradient(180deg,#eaf7ef,#e6faf1); border-top:1px solid rgba(7,32,41,0.03); }
+    .footer-grid{ display:grid; gap:1rem; }
+    @media(min-width:900px){ .footer-grid{ grid-template-columns: 1fr 1fr; } }
+    .socials{ display:flex; gap:0.6rem; }
+    .small-muted{ color:var(--muted); font-size:0.9rem; }
+
+    /* Utilities */
+    .muted{ color:var(--muted); }
+    .center{ text-align:center; }
+    .badge{ display:inline-block; padding:0.35rem 0.6rem; border-radius:999px; background:rgba(6,182,116,0.08); color:var(--accent-2); font-weight:700; }
+
+    /* Accessibility */
+    a:focus, button:focus, input:focus{ outline:3px solid rgba(5,150,105,0.12); outline-offset:2px; }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+    /* Responsive helpers */
+    @media (max-width:600px){ .header-inner{ padding:0.5rem 0.75rem; } .hero{ padding:1rem 0; } }
+
+    /* Micro interactions */
+    .hover-lift{ transition: transform 200ms ease, box-shadow 200ms ease; }
+    .hover-lift:hover{ transform: translateY(-6px); box-shadow:0 14px 40px rgba(2,8,23,0.08); }
+
+  </style>
+
+</head>
+<body>
+
+ <!-- Header -->
+  <header aria-label="Utama">
+    <div class="header-inner">
+      <div class="brand">
+	  <img src="logo-baru.png" alt="Logo eCO.RIde" class="logo">
+        <div>
+          <h1>eCO.RIde</h1>
+          <p class="muted">Transportasi Cerdas · Emisi Rendah · Kota Sehat</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#home">Beranda</a>
+        <a href="#materi">Materi</a>
+        <a href="#infografis">Infografis</a>
+        <a href="#video">Video</a>
+        <a href="#resources">Sumber</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="home" class="container">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <span class="kicker">Eco‑Ride</span>
+          <h2 id="hero-title" class="headline">Kurangi Emisi Lalu Lintas — Mulai dari Perjalanan Anda</h2>
+          <p class="lead">Eco‑Ride menyediakan materi edukasi, infografis interaktif, dan video animasi untuk membantu warga dan juga mengedukasi warga masyarakat terkait apa itu Eco.riDE, dan bagaimana dampak- dampaknya.</p>
+
+          <div style="margin-top:1rem; display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+            <a class="btn primary" href="#materi">Mulai Belajar</a>
+            <a class="btn ghost" href="#infografis">Lihat Infografis</a>
+            <div style="margin-left:auto;" class="muted">BELAJAR UNTUK MENCEGAH <strong>EMISI</strong> SEMAKIN PARAH DENGAN ECO RIDE</div>
+          </div>
+
+          <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center;">
+            <div class="card small" style="display:flex; gap:0.5rem; align-items:center;">
+              <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;display:grid;place-items:center;font-weight:700;">✓</div>
+              <div>
+                <div style="font-weight:700;">Solusi + Praktis</div>
+                <div class="muted" style="font-size:0.9rem;">Langkah kecil, dampak besar</div>
+              </div>
+            </div>
+
+            <div class="card small" style="display:flex; gap:0.5rem; align-items:center;">
+              <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(180deg,#06b6d4,#0ea5a4);color:white;display:grid;place-items:center;font-weight:700;">⚙</div>
+              <div>
+                <div style="font-weight:700;">Untuk Pemerintah & Warga</div>
+                <div class="muted" style="font-size:0.9rem;">Materi adaptif dan mudah diimplementasi</div>
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hero-media">
+          <div class="card-media card hover-lift">
+            <!-- Lottie-like simple SVG animation fallback -->
+            <!-- <svg viewBox="0 0 600 360" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"> -->
+              <h2>Eco-Ride — Jalan Menuju Kota Rendah Emisi</h2>
+	    <div class="ecomobility">
+            <img src="ecomobility.jpg" alt="Eco Mobility">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two column: materi + side -->
+    <section class="two-col" aria-labelledby="materi">
+      <div>
+        <h2 id="materi">Materi Pembelajaran</h2>
+        <p class="lead-small">Kumpulan modul pembelajaran yang mengikuti alur: pemahaman → analisis → intervensi → evaluasi.</p>
+
+        <div style="display:grid; gap:0.8rem;">
+
+          <article class="card" aria-labelledby="m1">
+            <h3 id="m1">Modul 1: Apa itu Emisi Lalu Lintas?</h3>
+            <p class="muted"> Penjelasan bagaimana emisi lalu lintas berkontribusi pada kualitas udara.</p>
+            <details style="margin-top:0.6rem;">
+              <summary style="font-weight:700; cursor:pointer;">Ringkasan </summary>
+              <ul>
+                <li>Memahami jenis emisi (CO2, NOx, PM2.5)</li>
+                <li>Mengidentifikasi sumber dari kendaraan pribadi, angkutan umum, dan logistik</li>
+                <li>Menilai dampak kesehatan dan ekonomi</li>
+              </ul>
+            </details>
+            <div style="margin-top:0.6rem; display:flex; gap:0.5rem; align-items:center;">
+              <a href="https://www.canva.com/design/DAGv6IdXUZQ/8e_UyeO_B2E7UdznY5ZNNg/view?embed" download>
+              <button class="btn primary" onclick="openLesson('Modul 1')">Buka Modul</button>
+              <!-- <button class="btn ghost" onclick="saveProgress('Modul 1')">Simpan</button> -->
+               </a>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="m2">
+            <h3 id="m2">Modul 2:  Analisis Rute</h3>
+            <p class="muted">Bagaimana menganalisis rute untuk menerapkan eco mobility.</p>
+            <details style="margin-top:0.6rem;"><summary style="font-weight:700; cursor:pointer;">Konten Utama</summary>
+              <ol>
+                <li>Pengenalan sensor kualitas udara dan telemetri kendaraan</li>
+                <li>Analisis data rute dengan peta dan heatmap</li>
+                <li>Studi kasus: pengurangan emisi dengan optimasi rute</li>
+              </ol>
+            </details>
+            <div style="margin-top:0.6rem; display:flex; gap:0.5rem; align-items:center;">
+              <a href="https://www.canva.com/design/DAGv6PbWtLs/fpGEpfMM29OaEXe5LdTgWA/view?embed" download>
+              <button class="btn primary" onclick="openLesson('Modul 2')">Buka Modul</button>
+              <!-- <button class="btn ghost" onclick="saveProgress('Modul 2')">Simpan</button> -->
+               </a>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="m3">
+            <h3 id="m3">Modul 3: Solusi Kebijakan & Teknologi</h3>
+            <p class="muted">Kebijakan transportasi, insentif kendaraan rendah emisi, serta solusi teknologi.</p>
+            <div style="margin-top:0.6rem; display:flex; gap:0.5rem;">
+              <a href="https://www.canva.com/design/DAGv6MC3ADE/Yw1wfehZIIHXeFGOd6Q34A/view?embed" download>
+              <button class="btn primary" onclick="openLesson('Modul 3')">Buka Modul</button>
+              <!-- <button class="btn ghost" onclick="saveProgress('Modul 3')">Simpan</button> -->
+            </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+<!-- Two column: materi + side -->
+    <section class="two-col" aria-labelledby="materi">
+      <div>
+        <h2 id="materi">Materi Edukasi</h2>
+        <p class="lead-small">Kumpulan edukasi yang interaktif</p>
+
+        <div style="display:grid; gap:0.8rem;">
+
+          <article class="card" aria-labelledby="m1">
+            <h3 id="m1">Materi Edukasi 1</h3>
+            <p class="muted"> MENERAPKAN ECO MOBILITY</p>
+            <details style="margin-top:0.6rem;">
+              <summary style="font-weight:700; cursor:pointer;">Ringkasan </summary>
+              <ul>
+                <li>Memahami jenis emisi (CO2, NOx, PM2.5)</li>
+                <li>Mengidentifikasi sumber dari kendaraan pribadi, angkutan umum, dan logistik</li>
+                <li>Menilai dampak kesehatan dan ekonomi</li>
+              </ul>
+            </details>
+            <div style="margin-top:0.6rem; display:flex; gap:0.5rem; align-items:center;">
+              <a href="https://www.canva.com/design/DAGv6HiaDkM/nEd4A_GWFZ9D29JcHcm1bQ/view?embed"  download>
+              <button class="btn primary" onclick="openLesson('Modul 1')">Buka Modul</button>
+              <!-- <button class="btn ghost" onclick="saveProgress('Materi 1')">Simpan</button> -->
+               </a>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="m2">
+            <h3 id="m2">Materi Edukasi 2</h3>
+            <p class="muted">Pengenalan Eco Mobility.</p>
+            <details style="margin-top:0.6rem;"><summary style="font-weight:700; cursor:pointer;">Konten Utama</summary>
+              <ol>
+                <li>Pengenalan sensor kualitas udara dan telemetri kendaraan</li>
+                <li>Analisis data rute dengan peta dan heatmap</li>
+                <li>Studi kasus: pengurangan emisi dengan optimasi rute</li>
+              </ol>
+            </details>
+            <div style="margin-top:0.6rem; display:flex; gap:0.5rem; align-items:center;">
+              <a href="https://www.canva.com/design/DAGv1ujwOkM/Im-JGBmvZ1fSx1R0IhqBaQ/view?embed" download>
+              <button class="btn primary" onclick="openLesson('Modul 2')">Buka Modul</button>
+              <!-- <button class="btn ghost" onclick="saveProgress('Modul 2')">Simpan</button> -->
+               </a>
+            </div>
+          </article>
+
+        
+
+        </div>
+      </div>
+      <aside>
+        <div class="card" style="position:sticky; top:90px;">
+          <h3>Ringkasan Cepat</h3>
+          <p class="muted"> Dengan menerapkan eco mobility dapat menjadi langkah awal mewujudkan bumi yang bebas polusi.</p>
+          <div style="margin-top:0.6rem; display:flex; flex-direction:column; gap:0.5rem;">
+            <a class="btn ghost" href="#infografis">Lihat Infografis</a>
+            <a class="btn ghost" href="#video">Tonton Video</a>
+            <!-- <a class="btn primary" href="#signup">Gabung Komunitas</a> -->
+          </div>
+        </div>
+
+        <div style="height:0.6rem"></div>
+
+        <!-- <div class="card">
+          <h4>Progres Anda</h4>
+          <p class="muted">Konten yang disimpan akan muncul di sini.</p>
+          <ul id="progressList" style="margin-top:0.6rem; display:flex; gap:0.4rem; flex-wrap:wrap;"></ul>
+        </div> -->
+
+      </aside>
+    </section>
+
+    <!-- Infografis interaktif -->
+    <section id="infografis" aria-labelledby="infog-title">
+      <h2 id="infog-title">Infografis : Eco Mobility</h2>
+<div class="infografis">
+<img src="1.jpg" alt="Infografis 1">
+<img src="2.jpg" alt="Infografis 2">
+<img src="3.jpg" alt="Infografis 3">
+<img src="4.jpg" alt="Infografis 4">
+</div>
+
+    <!-- Video section -->
+    <section id="video" aria-labelledby="video-title">
+      <h2 id="video-title">Video Animasi Edukasi</h2>
+      <p class="muted">Konten ringkas tentang cara mengurangi emisi saat berkendara dan memilih moda transportasi.</p>
+
+      <div style="display:grid; gap:0.75rem; grid-template-columns:1fr;">
+        <div class="card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/Bx5P4AmNVD8" title="Eco-Ride: Contoh Video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <p class="muted" style="margin-top:0.5rem;">Video singkat edukasi — menerapkan eco mobility di wilayah Kutai Timur.</p>
+        </div>
+
+        <div class="card">
+          <h4>Animasi: Cara Mengurangi Emisi Perjalanan</h4>
+          <p class="muted">Animasi Eco Mobility.</p>
+          <div style="margin-top:0.5rem;">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/vIrOj7f-xyY" title="Eco-Ride: Contoh Video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" aria-labelledby="res-title">
+      <h2 id="res-title">Sumber & Materi Tambahan</h2>
+      <p class="muted">Dokumen, dataset, dan alat yang bisa membantu riset dan implementasi kebijakan.</p>
+
+      <div class="resources" style="margin-top:0.6rem;">
+        <div class="resource">
+          <div>
+            <div style="font-weight:700;">Data Emisi Kota (CSV)</div>
+            <div class="muted">Dataset contoh untuk analisis banyaknya emisi di Kalimantan Timur</div>
+          </div>
+          <a href="https://share.google/P5gyo0XITH1fvzp0k">Unduh</a>
+        </div>
+
+        <div class="resource">
+          <div>
+            <div style="font-weight:700;">Panduan Kebijakan Transportasi Ramah Lingkungan</div>
+            <div class="muted">Dokumen ringkasan kebijakan untuk pemerintah daerah</div>
+          </div>
+          <a href="file:///C:/Users/Acer/Desktop/New%20folder/PERCOBAAN/assets/PERGUB.20.2020.pdf">Buka PERGUB</a>
+          <a href="file:///C:/Users/Acer/Desktop/New%20folder/PERCOBAAN/assets/Kebijakan Transportasi.docx">Unduh  Penjelasan</a>
+        </div>
+
+        <div class="resource">
+          
+          <div style="font-weight:700;">Komik edukasi singkat</div>  </a>
+          <a href="https://www.canva.com/design/DAGv645wqik/IOSAa4cynqGCMOkZgUtq9g/view?embed"  > Komik </a>
+          </div>
+          
+          
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Signup / newsletter -->
+    <section id="signup" aria-labelledby="signup-title">
+      
+      
+
+      <div class="card" style="display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap;">
+        <div style="flex:1; min-width:220px;">
+         
+        </div>
+        <div>
+          
+        </div>
+        
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div style="display:flex; gap:0.6rem; align-items:center;">
+          <div class="logo" style="width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;font-weight:800;">ER</div>
+          <div>
+            <div style="font-weight:700;">Eco‑Ride</div>
+            <div class="small-muted">Transportasi cerdas untuk kota sehat</div>
+          </div>
+        </div>
+
+        <div style="margin-top:1rem; color:var(--muted); font-size:0.9rem;">
+          <p>Alamat: Jl. Soekarno Hatta km.25 SMAN 2 SANGATTA UTARA</p>
+          <p>Instagram: @eco_.ride</p>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-weight:700;">Ikuti Kami</div>
+            <div class="socials" style="margin-top:0.5rem;">
+              
+              <a href="#">Instagram @eco_.ride</a>
+              
+            </div>
+          </div>
+          <div class="center small-muted">© 2025 Eco‑Ride — Nurul Aisyah</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: chart, interactions, sample data -->
+  <script>
+    // ---------- Sample data for the emissions chart ----------
+    const initialData = [
+      { mode: 'Mobil Pribadi', value: 180 },
+      { mode: 'Motor', value: 110 },
+      { mode: 'Bus', value: 80 },
+      { mode: 'Kereta', value: 45 },
+      { mode: 'Sepeda', value: 5 },
+      { mode: 'Jalan Kaki', value: 2 }
+    ];
+
+    let emissionData = JSON.parse(JSON.stringify(initialData));
+
+    // Utility: map range
+    function mapRange(value, inMin, inMax, outMin, outMax){
+      return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+
+    function drawChart(){
+      const svg = document.getElementById('emissionChart');
+      const w = 800, h = 400; // viewBox dims
+      const padding = { left: 80, right: 40, top: 30, bottom: 60 };
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+      // clear
+      const barsGroup = svg.querySelector('#bars');
+      const labelsGroup = svg.querySelector('#labels');
+      const gridGroup = svg.querySelector('#grid');
+      const legendGroup = svg.querySelector('#legend');
+      barsGroup.innerHTML = '';
+      labelsGroup.innerHTML = '';
+      gridGroup.innerHTML = '';
+      legendGroup.innerHTML = '';
+
+      const maxVal = Math.max(...emissionData.map(d => d.value));
+      const cols = emissionData.length;
+      const usableW = w - padding.left - padding.right;
+      const barW = usableW / cols * 0.6;
+
+      // grid lines
+      for(let i=0;i<=5;i++){
+        const y = mapRange(i, 0, 5, h - padding.bottom, padding.top);
+        const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+        line.setAttribute('x1', padding.left);
+        line.setAttribute('x2', w - padding.right);
+        line.setAttribute('y1', y);
+        line.setAttribute('y2', y);
+        line.setAttribute('stroke', 'rgba(7,32,41,0.04)');
+        line.setAttribute('stroke-width', '1');
+        gridGroup.appendChild(line);
+
+        const txt = document.createElementNS('http://www.w3.org/2000/svg','text');
+        txt.setAttribute('x', padding.left - 10);
+        txt.setAttribute('y', y + 4);
+        txt.setAttribute('text-anchor', 'end');
+        txt.setAttribute('font-size', '12');
+        txt.setAttribute('fill', 'rgba(7,32,41,0.5)');
+        txt.textContent = Math.round(mapRange(i, 0, 5, 0, maxVal));
+        gridGroup.appendChild(txt);
+      }
+
+      emissionData.forEach((d,i)=>{
+        const cx = padding.left + (usableW / cols) * i + (usableW / cols) / 2;
+        const barHeight = mapRange(d.value, 0, maxVal, 0, h - padding.top - padding.bottom);
+        const x = cx - barW/2;
+        const y = h - padding.bottom - barHeight;
+
+        const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        rect.setAttribute('x', x);
+        rect.setAttribute('y', y);
+        rect.setAttribute('width', barW);
+        rect.setAttribute('height', barHeight);
+        rect.setAttribute('rx', 8);
+        rect.setAttribute('fill', i % 2 === 0 ? 'url(#g1)' : 'url(#g2)');
+        rect.style.cursor = 'pointer';
+        rect.addEventListener('click', ()=>{ alert(d.mode + ': ' + d.value + ' gCO2/pkm'); highlight(i); });
+        barsGroup.appendChild(rect);
+
+        const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+        lbl.setAttribute('x', cx);
+        lbl.setAttribute('y', h - padding.bottom + 18);
+        lbl.setAttribute('text-anchor', 'middle');
+        lbl.setAttribute('font-size', '12');
+        lbl.setAttribute('fill', 'rgba(7,32,41,0.7)');
+        lbl.textContent = d.mode;
+        labelsGroup.appendChild(lbl);
+
+        // value label above bar
+        const val = document.createElementNS('http://www.w3.org/2000/svg','text');
+        val.setAttribute('x', cx);
+        val.setAttribute('y', y - 8);
+        val.setAttribute('text-anchor', 'middle');
+        val.setAttribute('font-size', '12');
+        val.setAttribute('fill', 'rgba(7,32,41,0.8)');
+        val.textContent = d.value + ' g';
+        labelsGroup.appendChild(val);
+      });
+
+      // defs for gradients
+      let defs = svg.querySelector('defs');
+      if(!defs){ defs = document.createElementNS('http://www.w3.org/2000/svg','defs'); svg.insertBefore(defs, svg.firstChild); }
+      defs.innerHTML = `
+        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#16a34a" stop-opacity="0.95" />
+          <stop offset="100%" stop-color="#bbf7d0" stop-opacity="0.9" />
+        </linearGradient>
+        <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#059669" stop-opacity="0.95" />
+          <stop offset="100%" stop-color="#dcfce7" stop-opacity="0.9" />
+        </linearGradient>
+      `;
+
+      // Add simple legend
+      const legendX = w - padding.right - 160;
+      const legendY = padding.top + 10;
+      emissionData.forEach((d,i)=>{
+        const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+        g.setAttribute('transform', `translate(${legendX}, ${legendY + i*22})`);
+        const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        rect.setAttribute('x', 0); rect.setAttribute('y', -12); rect.setAttribute('width', 12); rect.setAttribute('height', 12);
+        rect.setAttribute('fill', i%2===0 ? 'url(#g1)' : 'url(#g2)');
+        g.appendChild(rect);
+        const txt = document.createElementNS('http://www.w3.org/2000/svg','text');
+        txt.setAttribute('x', 18); txt.setAttribute('y', -2); txt.setAttribute('font-size', '12'); txt.setAttribute('fill', 'rgba(7,32,41,0.8)');
+        txt.textContent = d.mode + ' — ' + d.value + ' g';
+        g.appendChild(txt);
+        legendGroup.appendChild(g);
+      });
+    }
+
+    function highlight(index){
+      const svg = document.getElementById('emissionChart');
+      const rects = svg.querySelectorAll('#bars rect');
+      rects.forEach((r,i)=>{
+        if(i===index) r.setAttribute('stroke','rgba(2,6,23,0.12)'), r.setAttribute('stroke-width','3'); else r.removeAttribute('stroke');
+      });
+    }
+
+    function randomizeData(){
+      emissionData = emissionData.map(d=>({ ...d, value: Math.round(Math.max(2, d.value * (0.7 + Math.random()*0.9))) }));
+      drawChart();
+    }
+
+    function resetData(){ emissionData = JSON.parse(JSON.stringify(initialData)); drawChart(); }
+
+    // initial draw
+    document.addEventListener('DOMContentLoaded', ()=>{ drawChart(); loadProgress(); });
+
+    // ---------- Simple interactions (progress, subscribe, lessons) ----------
+    function saveProgress(title){
+      const key = 'eco_ride_progress_v1';
+      const arr = JSON.parse(localStorage.getItem(key) || '[]');
+      if(!arr.includes(title)) arr.push(title);
+      localStorage.setItem(key, JSON.stringify(arr));
+      loadProgress();
+      alert(title + ' disimpan ke progres Anda.');
+    }
+
+    function loadProgress(){
+      const key = 'eco_ride_progress_v1';
+      const arr = JSON.parse(localStorage.getItem(key) || '[]');
+      const ul = document.getElementById('progressList');
+      ul.innerHTML = '';
+      arr.forEach(item=>{
+        const li = document.createElement('li');
+        li.textContent = item;
+        li.style.padding = '0.35rem 0.6rem';
+        li.style.borderRadius = '999px';
+        li.style.background = 'linear-gradient(90deg,#ecfdf5,#f0fff9)';
+        li.style.fontWeight = '700';
+        li.style.color = '#065f46';
+        li.style.marginRight = '0.4rem';
+        ul.appendChild(li);
+      });
+    }
+
+    function openLesson(name) {
+  window.location.href = "file:///C:/Users/Acer/Desktop/New%20folder/PERCOBAAN/assets/" + name + ".pdf";
+}
+
+// function openLesson(name) {
+//   const fileName = name.replace(" ", "%20") + ".pdf"; // ganti spasi jadi %20
+//   const link = document.createElement('a');
+//   link.href = "assets/" + fileName;
+//   link.download = fileName;
+//   link.click();
+// }
+
+
+    function subscribe(){
+      const email = document.getElementById('emailInput').value.trim();
+      if(!email || !email.includes('@')){ alert('Masukkan email valid'); return; }
+      alert('Terima kasih! ' + email + ' telah terdaftar.');
+      document.getElementById('emailInput').value = '';
+    }
+
+    function downloadSample(){
+      const csv = 'mode,value 
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'sample-emission-data.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+
+    // Theme toggle: simple light/dark switch stored in localStorage
+    function toggleTheme(){
+      const k = 'eco_ride_theme_v1';
+      const cur = localStorage.getItem(k) || 'light';
+      const next = (cur === 'light') ? 'dark' : 'light';
+      applyTheme(next); localStorage.setItem(k, next);
+    }
+    function applyTheme(mode){
+      if(mode === 'dark'){
+        document.documentElement.style.setProperty('--bg', '#051622');
+        document.documentElement.style.setProperty('--panel', '#062426');
+        document.documentElement.style.setProperty('--text', '#e6f6f0');
+        document.documentElement.style.setProperty('--muted', 'rgba(230,246,240,0.8)');
+      } else {
+        document.documentElement.style.setProperty('--bg', '#f3fbf8');
+        document.documentElement.style.setProperty('--panel', '#ffffff');
+        document.documentElement.style.setProperty('--text', '#072029');
+        document.documentElement.style.setProperty('--muted', '#556073');
+      }
+    }
+    (function(){ const k='eco_ride_theme_v1'; const v=localStorage.getItem(k)||'light'; applyTheme(v); })();
+
+    // Small keyboard shortcut: press '1' to open modul pertama
+    document.addEventListener('keydown', (e)=>{ if(e.key === '1') openLesson('Modul 1'); });
+
+  </script>
+
+  <!-- <script>
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script> -->
+
+</body>
+</html>
